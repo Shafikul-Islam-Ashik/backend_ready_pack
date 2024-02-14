@@ -7,9 +7,13 @@ import {
   updateUser,
 } from "../controllers/userController.js";
 import { userPhoto } from "../utils/multer.js";
+import { verifyToken } from "../middlewares/verifyToken.js";
 
 // init router from express
 const router = express.Router();
+
+// use verify token
+router.use(verifyToken);
 
 // routing
 router.route("/").get(getAllUser).post(userPhoto, createUser);
