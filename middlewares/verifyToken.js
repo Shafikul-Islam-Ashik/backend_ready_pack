@@ -13,7 +13,7 @@ export const verifyToken = (req, res, next) => {
   // token verify
   jwt.verify(
     accessToken,
-    process.env.ACCESS_TOKEN,
+    process.env.ACCESS_TOKEN_SECRET,
     asyncHandler(async (error, decode) => {
       if (error) {
         return res.status(400).json({ message: "Invalid Token" });

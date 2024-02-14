@@ -35,9 +35,9 @@ export const loginUser = asyncHandler(async (req, res) => {
   }
 
   // access token
-  const accessToken = await jwt.sign(
+  const accessToken = jwt.sign(
     { email: loginUser.email },
-    process.env.ACCESS_TOKEN,
+    process.env.ACCESS_TOKEN_SECRET,
     {
       expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,
     }
